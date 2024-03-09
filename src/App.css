@@ -1,6 +1,6 @@
 *{
   box-sizing: border-box;
-  color: rgb(4, 4, 90)
+  color: rgb(4, 4, 90);
 }
 body{
   background-color: gray;
@@ -31,11 +31,14 @@ body{
   position: absolute;
   top: 1.5rem;
   left: 1.5rem;
+  font-size: 24px;
+}
+.close:hover{
+  cursor: pointer;
 }
 header{
   font-weight: 700;
   font-size: 32px;
-  background-color: grey;
   margin-bottom: 1.94rem;
 }
 main{
@@ -58,30 +61,115 @@ main{
   /* background-color: lightgrey; */
   width: 100%;
   min-height: 2.5rem;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 .importName{
   border-radius: 10px;
   border: 2px solid lightgray;
   background-color: white;
+  display: flex;
+  justify-content: space-between;
+  min-height: 2.5rem;
+  padding: 1rem 1rem 0.25rem 0.25rem;
 }
+.importText{
+  align-self: flex-end;
+  padding: 0 0 5px 5px;
+}
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent; 
+  border-right: 7px solid transparent; 
+  border-top: 7px solid gray;
+  align-self: center;
+  margin-right: 5px;
+  padding-bottom: 0.25rem;
+}
+.importManifest{
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+.manifestTitle{
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.manifestSection{
+  /* width: 90%; */
+  /* height: 50%; */
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem 1rem 0 1rem;
+  border-radius: 20px;
+}
+.dragDrop{
+  /* background-color: yellow; */
+  width: 90%;
+  /* width: 22rem; */
+  height: 6rem;
+  border: 2px dashed lightgray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.manifestUpload{
+  background-color: rgb(4, 4, 90);
+  color: white;
+  padding: 0.7rem 3rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+.manifestUpload:hover{
+  cursor: pointer;
+}
+.tolerance{
+  display: flex;
+  flex-direction: column;
+  gap: 0.44rem;
+}
+.toleranceTitle{
+  font-weight: 700;
+}
+
 
 .toleranceContainer{
   display: flex;
+  gap: 1rem;
+}
+.toggleRight{
+  display: flex;
+  align-items: center;
+}
+.clock{
+  margin-right: 0.25rem;
+}
+.toleranceLevel{
+  align-self: flex-start;
+  padding-top: 0.1rem
 }
 .dataChecking{
   font-weight: 700;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.3rem;
 }
 .dataSubtitle{
-  color: rgb(106, 105, 105);
+  color: rgb(115, 113, 113);
 }
 hr{
   width: 50%;
   margin: 0;
-  opacity: 0.3;
+  opacity: 0.5;
+  background-color: black;
 }
 .rightMain{
   width: 36%;
@@ -89,7 +177,44 @@ hr{
   background-color: grey;
 }
 footer{
-  height: 10%;
-  width: 48.5%;
-  background-color: grey;
+  min-height: 10%;
+  /* width: 48.5%; */
+  /* background-color: grey; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.footerTitle{
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+.footerButtons{
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: .75rem;
+}
+.footerButtons>*{
+  padding: .75rem 0.75rem;
+  border-radius: 10px;
+  
+}
+.continue{
+  background-color: rgb(4, 4, 90);
+  color: white;
+  width: 15rem;
+  display: grid;
+  place-content: center;
+}
+.cancel{
+  background-color: white;
+  color: rgb(201, 201, 3);
+  border: 2px solid rgb(201, 201, 3);
+  width: 8.4rem;
+  display: grid;
+  place-content: center;
+}
+.continue:hover, .cancel:hover{
+  cursor: pointer;
 }

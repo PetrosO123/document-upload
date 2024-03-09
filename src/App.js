@@ -1,17 +1,84 @@
 import "./App.css";
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import WatchLaterIcon from "@mui/icons-material/WatchLater";
+import ArticleIcon from "@mui/icons-material/Article";
 
 function App() {
+  const AntSwitch = styled(Switch)(({ theme }) => ({
+    width: 28,
+    height: 16,
+    padding: 0,
+    display: "flex",
+    "&:active": {
+      "& .MuiSwitch-thumb": {
+        width: 15,
+      },
+      "& .MuiSwitch-switchBase.Mui-checked": {
+        transform: "translateX(9px)",
+      },
+    },
+    "& .MuiSwitch-switchBase": {
+      padding: 2,
+      "&.Mui-checked": {
+        transform: "translateX(12px)",
+        color: "#fff",
+        "& + .MuiSwitch-track": {
+          opacity: 1,
+          backgroundColor:
+            theme.palette.mode === "dark" ? "white" : "rgb(4, 4, 90)",
+        },
+      },
+    },
+    "& .MuiSwitch-thumb": {
+      boxShadow: "0 2px 4px 0 rgb(0 35 11 / 20%)",
+      width: 12,
+      height: 12,
+      borderRadius: 6,
+      transition: theme.transitions.create(["width"], {
+        duration: 200,
+      }),
+      backgroundColor: "white",
+    },
+    "& .MuiSwitch-track": {
+      borderRadius: 16 / 2,
+      opacity: 1,
+      backgroundColor:
+        theme.palette.mode === "dark"
+          ? "rgba(255,255,255,.35)"
+          : "rgba(0,0,0,.25)",
+      boxSizing: "border-box",
+    },
+  }));
+
   return (
     <div className="App">
       <div className="close">X</div>
       <header>Document Upload</header>
       <main>
         <div className="leftMain">
-          <div className="importName">Select Import Name:</div>
+          <div className="importName">
+            <div className="importText">Select Import Name:</div>
+            <div className="arrow"></div>
+          </div>
           <hr />
           <div className="importManifest">
             <div className="manifestTitle">
               Select a manifest you'd like to import
+            </div>
+            <div className="manifestSection">
+              <div className="dragDrop">
+                <ArticleIcon />
+                <span>
+                  Drag & Drop Here Or <strong>Browse</strong>
+                </span>
+              </div>
+              <div className="manifestUpload">Upload Manifest</div>
             </div>
           </div>
           <hr />
@@ -21,15 +88,24 @@ function App() {
           </div>
           <hr />
           <div className="tolerance">
-            <div className="title">Tolerance Window:</div>
+            <div className="toleranceTitle">Tolerance Window:</div>
             <div className="toleranceContainer">
               <div className="toggleLeft">
-                <div className="toggleImage"></div>
-                <div className="toggleText">Toggle ON</div>
+                <div className="toggleImage">
+                  <Stack direction="row" spacing={1} alignItems="center">
+                    <AntSwitch
+                      defaultChecked
+                      inputProps={{ "aria-label": "ant design" }}
+                    />
+                    <Typography>Toggle ON</Typography>
+                  </Stack>
+                </div>
               </div>
               <div className="toleranceDivider">|</div>
               <div className="toggleRight">
-                <div className="clock"></div>
+                <div className="clock">
+                  <WatchLaterIcon />
+                </div>
                 <div className="toleranceLevel">Select Tolerance Level</div>
               </div>
             </div>
@@ -37,7 +113,15 @@ function App() {
         </div>
         <div className="rightMain"></div>
       </main>
-      <footer></footer>
+      <footer>
+        <div className="footerTitle">
+          Data in the import file is correct. Please press Continue to import.
+        </div>
+        <div className="footerButtons">
+          <div className="continue">Continue Import</div>
+          <div className="cancel">Cancel</div>
+        </div>
+      </footer>
     </div>
   );
 }
