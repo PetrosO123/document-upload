@@ -1,1 +1,1 @@
-Live Demo Site: [https://petroso123.github.io/document-upload/]
+Live Demo Site: https://petroso123.github.io/document-upload/
