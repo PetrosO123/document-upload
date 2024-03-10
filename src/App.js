@@ -7,7 +7,10 @@ function App() {
   return (
     <div className="App">
       <div className="close">X</div>
-      <header>Document Upload</header>
+      <header>
+        Document Upload
+        <hr></hr>
+      </header>
       <main>
         <LeftMain />
         <RightMain />

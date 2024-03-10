@@ -1,6 +1,7 @@
 *{
   box-sizing: border-box;
   color: rgb(4, 4, 90);
+  font-size: 14px;
 }
 body{
   background-color: gray;
@@ -9,8 +10,8 @@ body{
   height: 100vh;
 }
 .App{
-  width: 70rem;
-  height: 48rem;
+  width: 80rem;
+  height: 52rem;
   background-color: white;
   border-radius: 20px;
   display: flex;
@@ -41,145 +42,20 @@ header{
   font-size: 32px;
   margin-bottom: 1.94rem;
 }
+header>hr{
+  width: 100%;
+  margin-top: 0.75rem;
+}
 main{
   width: 80%;
   height: 64%;
   margin-bottom: 0.94rem;
   display: flex;
-  justify-content: space-between;
-}
-.leftMain{
-  width: 56%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: flex-start;
-  /* background-color: grey; */
-}
-.leftMain > *:not(hr){
-  /* background-color: lightgrey; */
-  width: 100%;
-  min-height: 2.5rem;
-  /* border: 2px solid black; */
-}
-.importName{
-  border-radius: 10px;
-  border: 2px solid lightgray;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  min-height: 2.5rem;
-  padding: 1rem 1rem 0.25rem 0.25rem;
-}
-.importText{
-  align-self: flex-end;
-  padding: 0 0 5px 5px;
-}
-.arrow {
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent; 
-  border-right: 7px solid transparent; 
-  border-top: 7px solid gray;
-  align-self: center;
-  margin-right: 5px;
-  padding-bottom: 0.25rem;
-}
-.importManifest{
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
-}
-.manifestTitle{
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-.manifestSection{
-  /* width: 90%; */
-  /* height: 50%; */
-  border: 1px solid gray;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 1rem 1rem 0 1rem;
-  border-radius: 20px;
-}
-.dragDrop{
-  /* background-color: yellow; */
-  width: 90%;
-  /* width: 22rem; */
-  height: 6rem;
-  border: 2px dashed lightgray;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.25rem;
-}
-
-.manifestUpload{
-  background-color: rgb(4, 4, 90);
-  color: white;
-  padding: 0.7rem 3rem;
-  border-radius: 10px;
-  margin: 1rem 0;
-}
-.manifestUpload:hover{
-  cursor: pointer;
-}
-.tolerance{
-  display: flex;
-  flex-direction: column;
-  gap: 0.44rem;
-}
-.toleranceTitle{
-  font-weight: 700;
-}
-
-
-.toleranceContainer{
-  display: flex;
-  gap: 1rem;
-}
-.toggleRight{
-  display: flex;
-  align-items: center;
-}
-.clock{
-  margin-right: 0.25rem;
-}
-.toleranceLevel{
-  align-self: flex-start;
-  padding-top: 0.1rem
-}
-.dataChecking{
-  font-weight: 700;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.5rem;
-}
-.dataSubtitle{
-  color: rgb(115, 113, 113);
-  margin-bottom: 0.25rem;
-}
-hr{
-  width: 50%;
-  margin: 0;
-  opacity: 0.5;
-  background-color: black;
-}
-.rightMain{
-  width: 36%;
-  height: 100%;
+  gap: 5rem;
 }
 footer{
   min-height: 10%;
-  /* width: 48.5%; */
-  /* background-color: grey; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -187,7 +63,7 @@ footer{
 }
 .footerTitle{
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 1.375rem;
 }
 .footerButtons{
   display: flex;
@@ -216,59 +92,4 @@ footer{
 }
 .continue:hover, .cancel:hover{
   cursor: pointer;
-}
-.topRight{
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.bottomRight{
-  height:50%;
-}
-.clientForm{
-
-}
-.split, .location, .client{
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.splitTitle, .location, .clientTitle{
-  font-weight:700
-}
-.available{
-  color: grey;
-}
-input:first-of-type{
-  margin-left: 0;
-}
-.rightHr{
-  width: 80%;
-}
-label:first-of-type{
-  margin-right: 1rem;
-}
-.clientForm{
-  width: 9.2rem;
-  border: 1px solid gray;
-  border-radius: 10px;;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 0.5rem 0.25rem 0.25rem;
-}
-.TC{
-  font-size: 14px;
-  margin-right: 1rem;
-}
-.TCRows{
-  display: flex;
-  flex-direction: column;
-  gap:1rem;
-}
-.TCRow{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
 }

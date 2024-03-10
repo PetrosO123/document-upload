@@ -1,5 +1,5 @@
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
-import "./App.css";
+import "./RightMain.css";
 function RightMain() {
   const centers = [];
   for (let i = 1; i <= 4; i++) {

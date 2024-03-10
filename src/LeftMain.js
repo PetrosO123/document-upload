@@ -4,7 +4,9 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
 import ArticleIcon from "@mui/icons-material/Article";
-import "./App.css";
+import "./LeftMain.css";
+import { useState } from "react";
+
 const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 28,
   height: 16,
@@ -50,11 +52,32 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
     boxSizing: "border-box",
   },
 }));
+
 function LeftMain() {
+  const [importName, setImportName] = useState(null);
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setImportName(file.name);
+  };
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
+  const handleDrop = (event) => {
+    event.preventDefault();
+    const file = event.dataTransfer.files[0];
+    setImportName(file.name);
+  };
+
+  const triggerFileInputClick = () => {
+    document.getElementById("fileUploadInput").click();
+  };
   return (
     <div className="leftMain">
       <div className="importName">
-        <div className="importText">Select Import Name:</div>
+        <div className="importText">
+          Select Import Name: <span>{importName}</span>
+        </div>
         <div className="arrow"></div>
       </div>
       <hr />
@@ -62,14 +85,26 @@ function LeftMain() {
         <div className="manifestTitle">
           Select a manifest you'd like to import
         </div>
-        <div className="manifestSection">
+        <div
+          className="manifestSection"
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
+        >
           <div className="dragDrop">
             <ArticleIcon />
             <span>
               Drag & Drop Here Or <strong>Browse</strong>
             </span>
           </div>
-          <div className="manifestUpload">Upload Manifest</div>
+          <div className="manifestUpload" onClick={triggerFileInputClick}>
+            Upload Manifest
+          </div>
+          <input
+            type="file"
+            id="fileUploadInput"
+            style={{ display: "none" }}
+            onChange={handleFileChange}
+          />
         </div>
       </div>
       <hr />
@@ -92,7 +127,7 @@ function LeftMain() {
               </Stack>
             </div>
           </div>
-          <div className="toleranceDivider">|</div>
+          <div className="toleranceDivider"></div>
           <div className="toggleRight">
             <div className="clock">
               <WatchLaterIcon />
