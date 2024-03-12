@@ -56,6 +56,14 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
 function LeftMain() {
   const [imports, setImports] = useState([]);
   const [importName, setImportName] = useState(null);
+  const [dropActive, setDropActive] = useState(false);
+  const handleDropDownClick = () => {
+    setDropActive(!dropActive);
+  };
+  const handleImportClick = (chosen) => {
+    setDropActive(false);
+    setImportName(chosen);
+  };
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setImportName(file.name);
@@ -74,10 +82,6 @@ function LeftMain() {
     const copy = [...imports];
     copy.push(file.name);
     setImports(copy);
-    console.log("copy: ", copy);
-  };
-  const handleImportClick = () => {
-    console.log("imports: ", imports);
   };
 
   const triggerFileInputClick = () => {
@@ -85,12 +89,30 @@ function LeftMain() {
   };
   return (
     <div className="leftMain">
-      <div className="importedFiles" onClick={handleImportClick}>
-        <div className="importText">
-          Select Import Name: <span>{importName}</span>
+      <div className="fileContainer">
+        <div className="importedFileHeader" onClick={handleDropDownClick}>
+          <div className="importText">
+            Select Import Name: <span>{importName}</span>
+          </div>
+          <div className={dropActive ? "arrow up" : "arrow"}></div>
         </div>
-        <div className="arrow"></div>
+        <div className="importedFiles">
+          {dropActive
+            ? imports.map((file, index) => {
+                return (
+                  <div
+                    key={file}
+                    className="importedFile"
+                    onClick={() => handleImportClick(file)}
+                  >
+                    {file}
+                  </div>
+                );
+              })
+            : null}
+        </div>
       </div>
+
       <hr />
       <div className="importManifest">
         <div className="manifestTitle">

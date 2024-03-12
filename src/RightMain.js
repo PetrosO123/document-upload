@@ -11,7 +11,7 @@ function RightMain() {
   const dropDownLeaf = (index) => {
     leaf !== null ? setLeaf(null) : setLeaf(index);
   };
-
+  //selecting an option for testing centers 1-4 from a list of possible options
   const selectClient = (client, i) => {
     const copy = [...selected];
     copy[i] = client;
@@ -26,7 +26,7 @@ function RightMain() {
         <div className="dropDownContainer">
           <div className="clientForm" onClick={() => dropDownLeaf(i)}>
             {selected[i] ? selected[i] : "Select Client"}
-            <div className={leaf === i ? "arrow up" : "arrow down"}></div>
+            <div className={leaf === i ? "arrow up" : "arrow"}></div>
           </div>
           {leaf === i ? (
             <div
