@@ -1,14 +1,52 @@
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
 import "./RightMain.css";
+import { useState } from "react";
+
 function RightMain() {
+  const clients = ["Amsterdam", "London", "New York", "Paris"];
   const centers = [];
-  for (let i = 1; i <= 4; i++) {
+  const [leaf, setLeaf] = useState(null);
+  const [selected, setSelected] = useState(Array(4).fill(null));
+
+  const dropDownLeaf = (index) => {
+    leaf !== null ? setLeaf(null) : setLeaf(index);
+  };
+
+  const selectClient = (client, i) => {
+    const copy = [...selected];
+    copy[i] = client;
+    setSelected(copy);
+    console.log("i triggered: ", i);
+    setLeaf(null);
+  };
+  for (let i = 0; i <= 3; i++) {
     centers.push(
       <div key={i} className="TCRow">
-        <div className="TC">Testing Center {i}</div>
-        <div className="clientForm">
-          Select Client <div className="arrow"></div>
+        <div className="TC">Testing Center {i + 1}</div>
+        <div className="dropDownContainer">
+          <div className="clientForm" onClick={() => dropDownLeaf(i)}>
+            {selected[i] ? selected[i] : "Select Client"}
+            <div className={leaf === i ? "arrow up" : "arrow down"}></div>
+          </div>
+          {leaf === i ? (
+            <div
+              className={
+                leaf === i ? "active dropdownContent" : "dropdownContent"
+              }
+            >
+              {clients.map((client) => (
+                <div
+                  key={client}
+                  className="dropdownItem clientOption"
+                  onClick={() => selectClient(client, i)}
+                >
+                  {client}
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
+
         <WatchLaterIcon />
       </div>
     );

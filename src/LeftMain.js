@@ -54,10 +54,14 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
 }));
 
 function LeftMain() {
+  const [imports, setImports] = useState([]);
   const [importName, setImportName] = useState(null);
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setImportName(file.name);
+    const copy = [...imports];
+    copy.push(file.name);
+    setImports(copy);
   };
 
   const handleDragOver = (event) => {
@@ -67,6 +71,13 @@ function LeftMain() {
     event.preventDefault();
     const file = event.dataTransfer.files[0];
     setImportName(file.name);
+    const copy = [...imports];
+    copy.push(file.name);
+    setImports(copy);
+    console.log("copy: ", copy);
+  };
+  const handleImportClick = () => {
+    console.log("imports: ", imports);
   };
 
   const triggerFileInputClick = () => {
@@ -74,7 +85,7 @@ function LeftMain() {
   };
   return (
     <div className="leftMain">
-      <div className="importName">
+      <div className="importedFiles" onClick={handleImportClick}>
         <div className="importText">
           Select Import Name: <span>{importName}</span>
         </div>

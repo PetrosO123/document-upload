@@ -68,4 +68,27 @@
     align-self: center;
     margin-right: 5px;
     padding-bottom: 0.25rem;
+    transition: transform 0.15s ease;
+  }
+  .dropDownContainer{
+    position:relative;
+  }
+  .active{
+    position: absolute;
+    z-index: 5;
+  }
+  .up{
+    transform: rotate(180deg);
+  }
+  .clientOption{
+    width: 10.5rem;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 0.7rem 0.5rem 0.5rem 0.75rem;
+  }
+  .clientOption{
+    cursor: pointer;
   }
