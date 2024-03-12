@@ -11,12 +11,10 @@ function RightMain() {
   const dropDownLeaf = (index) => {
     leaf !== null ? setLeaf(null) : setLeaf(index);
   };
-  //selecting an option for testing centers 1-4 from a list of possible options
   const selectClient = (client, i) => {
     const copy = [...selected];
     copy[i] = client;
     setSelected(copy);
-    console.log("i triggered: ", i);
     setLeaf(null);
   };
   for (let i = 0; i <= 3; i++) {
@@ -51,7 +49,6 @@ function RightMain() {
       </div>
     );
   }
-
   return (
     <div className="rightMain">
       <div className="topRight">
